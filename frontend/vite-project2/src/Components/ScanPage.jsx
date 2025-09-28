@@ -33,6 +33,7 @@ export function ScanPage() {
 
 
     document.getElementById("file-upload").classList.add("hidden");
+    document.getElementById("image-preview").classList.remove("hidden");
   };
 
   const handleScan = async () => {
@@ -100,8 +101,10 @@ export function ScanPage() {
 
         {/* Preview Image */}
         {preview && (
-          <div className="mt-4 flex items-left items-start">
-            <button className="relative  bg-[#ffffff] border border-solid rounded-lg w-[2em] h-[2em]" id="close-preview-image">X</button>
+          <div id="preview-image" className="ml-[90px]mt-4 flex items-left items-start">
+            <button className="translate-x-[255px] translate-y-[5px] relative  bg-[#ffffff] border border-solid rounded-lg w-[2em] h-[2em]" id="close-preview-image" onClick={() => {
+              window.location.reload();
+            }}>X</button>
             <img
               src={preview}
               alt="Preview"
