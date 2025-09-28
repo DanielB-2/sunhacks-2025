@@ -11,21 +11,19 @@ export function TopBar() {
 
       
       <div className="flex space-x-8">
-        <div className="cursor-pointer hover:underline">LeaderBoard</div>
+       
         <Link
-         to ="/signup"
-         className="cursor-pointer hover:underline"
-         >
-          Sign Up
-          </Link>
-
+          to="/leaderboard"
+          className="cursor-pointer hover:underline"
+        >
+          Leaderboard
+        </Link>
         <Link
-         to ="/signin"
-         className="cursor-pointer hover:underline"
-         >
-          Log In
-          </Link>
-        
+          to="/signup"
+          className="cursor-pointer hover:underline"
+        >
+          SignUp
+        </Link>
         <Link
           to="/about"
           className="cursor-pointer hover:underline"
