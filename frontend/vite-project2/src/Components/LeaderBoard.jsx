@@ -16,7 +16,7 @@ export function LeaderBoard() {
           
        });
 
-  const players = [
+  let players = [
     { name: "Anirudh", points: 120 },
     { name: "Daniel", points: 110 },
     { name: "Pratyush", points: 95 },
@@ -25,10 +25,13 @@ export function LeaderBoard() {
     { name: "Bob", points: 69 },
     { name: "Charlie", points: 67 },
     { name: "Sophia", points: 61 },
-    { name: "Max", points: 55 },
+    { name: "Max", points: Number(localStorage.getItem("points")==null ? 55 : localStorage.getItem("points")) },
     { name: "Olivia", points: 51 },
+    
+   
   ];
 
+   players.sort((a, b) => b.points - a.points);
   return (
     <div className="min-h-screen bg-[#f9f4eb] p-6 flex flex-col items-center">
       

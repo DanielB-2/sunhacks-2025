@@ -33,7 +33,7 @@ export function ScanPage() {
 
 
     document.getElementById("file-upload").classList.add("hidden");
-    document.getElementById("image-preview").classList.remove("hidden");
+    document.getElementById("preview-image").classList.remove("hidden");
   };
 
   const handleScan = async () => {
@@ -54,6 +54,14 @@ export function ScanPage() {
 
       const data = await res.json();
       setResult(data.result || "Could not classify item."); // <-- use result
+
+      console.log("ai response: " + data.result);
+      if (data.result.includes("5 points")) {
+        if (localStorage.getItem("points")==null) {
+          localStorage.setItem("points", 0);
+        }
+        localStorage.setItem("points", Number(localStorage.getItem("points")) + 5);
+      }
     } catch (err) {
       console.error(err);
       setResult("Error: Could not reach backend.");
