@@ -102,7 +102,7 @@ export function ScanPage() {
         {/* Preview Image */}
         {preview && (
           <div id="preview-image" className="ml-[90px]mt-4 flex items-left items-start">
-            <button className="translate-x-[250px] translate-y-[5px] relative  bg-[#ffffff] border border-solid rounded-lg w-[2em] h-[2em]" id="close-preview-image" onClick={() => {
+            <button className="translate-x-[340px] translate-y-[5px] relative  bg-[#ffffff] border border-solid rounded-lg w-[2em] h-[2em]" id="close-preview-image" onClick={() => {
               window.location.reload();
             }}>X</button>
             <img
