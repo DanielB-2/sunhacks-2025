@@ -42,7 +42,7 @@ export function ChatBox() {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg border border-gray-200 p-4 h-96 flex flex-col">
+    <div id="help-bot-popup" className="bg-white rounded-lg shadow-lg border border-gray-200 p-4 h-96 flex flex-col">
       <button className="right-[10px] absolute" id="close-help-bot-popup" onClick={() => {
           let helpPopupClassList = document.getElementById('help-bot-popup').classList;
 
