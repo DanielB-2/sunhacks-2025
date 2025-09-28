@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export function LoginPage() {
     return (
 
@@ -14,7 +15,10 @@ export function LoginPage() {
                     <p className="ml-3">Password</p>
                     <input id="password" className="rounded-md border-black border-solid border m-3"></input>
                 </div>
-
+                <Link
+                    to="/signup"
+                    className="cursor-pointer hover:underline"
+                ><p>Click here to signup</p></Link>
 
                 <button className="border border-solid border-black rounded-md w-fit m-5 p-2">Submit</button>
             </div>

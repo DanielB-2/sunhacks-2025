@@ -15,6 +15,7 @@ function App() {
         <Route path="/scan" element={<ScanPage />} />
         <Route path = "/about" element = {<About />} />
         <Route path = "/signin" element = {<LoginPage />} />
+        <Route path = "/login" element = {<LoginPage />} />
         <Route path = "/signup" element = {<SignupPage />} />
       </Routes>
     </Router>

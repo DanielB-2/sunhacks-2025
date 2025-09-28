@@ -25,6 +25,12 @@ export function TopBar() {
           SignUp
         </Link>
         <Link
+          to="/login"
+          className="cursor-pointer hover:underline"
+        >
+          SignUp
+        </Link>
+        <Link
           to="/about"
           className="cursor-pointer hover:underline"
         >
