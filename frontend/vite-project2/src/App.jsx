@@ -5,6 +5,8 @@ import { ScanPage } from "./Components/ScanPage";
 import { About } from "./about";
 import { SignupPage } from "./Components/SignupPage";
 import { LoginPage } from "./Components/LoginPage";
+import { LeaderBoard } from "./Components/LeaderBoard";
+
 
 function App() {
   return <div>
@@ -17,6 +19,7 @@ function App() {
         <Route path = "/signin" element = {<LoginPage />} />
         <Route path = "/login" element = {<LoginPage />} />
         <Route path = "/signup" element = {<SignupPage />} />
+        <Route path = "/LeaderBoard" element = {<LeaderBoard />} /> 
       </Routes>
     </Router>
   </div>
