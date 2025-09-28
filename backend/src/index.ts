@@ -77,7 +77,7 @@ export default {
 				contents: [
 					{
 					parts: [
-						{ text: "Classify this waste item into recyclable, compostable, or trash." },
+						{ text: "Classify this waste item into recyclable, compostable, or trash using one word. Then say '5 point added. Good Job!'" },
 						{
 						inline_data: {
 							mime_type: file.type || "image/jpeg",
