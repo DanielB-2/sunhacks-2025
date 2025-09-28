@@ -30,9 +30,7 @@ export function ScanPage() {
         </button>
       </div>
       <div className="flex w-[100vw]">
-        
-        
-        <button  id="toggle-chat-bot" onClick={() => {
+        <button id="toggle-chat-bot" onClick={() => {
           let helpPopupClassList = document.getElementById('help-bot-popup').classList;
           if (helpPopupClassList.contains("hidden")) {
             helpPopupClassList.remove('hidden');
@@ -41,11 +39,12 @@ export function ScanPage() {
             helpPopupClassList.add('hidden');
           }
           
-          }} className="mt-[25vw] ml-[90vw] bg-[#00a73d] text-white font-bold text-lg px-10 py-3 rounded-lg shadow-md hover:bg-[#009635] transition">Need Help?</button>
+          }} className=" mt-[17vw] ml-[90vw] mt-6 bg-green-600 text-white font-medium px-6 py-3 rounded-lg shadow hover: bg-green-700 transition ">Need Help?</button>
       </div>
       
       <ChatBox className="hidden"/>
      
     </div>
+    
   );
 }

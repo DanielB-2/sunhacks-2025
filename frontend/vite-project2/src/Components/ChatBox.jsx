@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export function ChatBox() {
   const [messages, setMessages] = useState([
-    { sender: "AI", text: "Hi 👋 I’m Gemini AI. Enter an item to classify it!" },
+    { sender: "AI", text: "Hi 👋 I’m Gemini AI. How can I help you today?" },
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -16,68 +16,66 @@ export function ChatBox() {
     setLoading(true);
 
     try {
-      const res = await fetch(
-        "https://recycle-x.agali9.workers.dev/classify",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ item: input }),
-        }
-      );
+      const res = await fetch("http://localhost:5000/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: input }),
+      });
 
       const data = await res.json();
-
-      const aiText =
-        data?.candidates?.[0]?.content?.[0]?.text || "Could not classify item";
-
-      const aiMessage = { sender: "AI", text: aiText };
+      const aiMessage = { sender: "AI", text: data.reply };
       setMessages((prev) => [...prev, aiMessage]);
     } catch (err) {
       setMessages((prev) => [
         ...prev,
         { sender: "AI", text: "⚠️ Error: Could not reach backend." },
       ]);
-      console.error(err);
     } finally {
       setLoading(false);
     }
   };
 
-  const handleKeyPress = (e) => {
-    if (e.key === "Enter") handleSend();
-  };
-
   return (
-    <div className="flex flex-col items-center p-4 bg-[#f9f4eb] rounded-lg shadow-md w-full max-w-lg">
-      <div className="w-full h-64 overflow-y-auto mb-4 border border-gray-300 rounded p-2">
-        {messages.map((msg, index) => (
+    <div id="help-bot-popup" className="hidden ml-auto w-full max-w-lg bg-white rounded-xl shadow-lg flex flex-col h-[500px] border border-gray-200">
+      {/* Messages */}
+      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        {messages.map((msg, idx) => (
           <div
-            key={index}
-            className={`mb-2 p-2 rounded ${
-              msg.sender === "AI" ? "bg-green-100 text-green-900" : "bg-blue-100 text-blue-900 text-right"
-            }`}
+            key={idx}
+            className={`flex ${msg.sender === "You" ? "justify-end" : "justify-start"}`}
           >
-            <strong>{msg.sender}:</strong> {msg.text}
+            <div
+              className={`p-3 rounded-lg max-w-xs ${
+                msg.sender === "You"
+                  ? "bg-green-600 text-white"
+                  : "bg-gray-200 text-gray-900"
+              }`}
+            >
+              <p className="text-sm">{msg.text}</p>
+            </div>
           </div>
         ))}
+        {loading && (
+          <div className="text-gray-500 text-sm italic">Gemini is typing...</div>
+        )}
       </div>
 
-      <div className="flex w-full gap-2">
+      {/* Input */}
+      <div className="flex p-3 border-t">
         <input
           type="text"
-          className="flex-1 border border-gray-300 rounded p-2"
-          placeholder="Type an item..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          onKeyDown={handleKeyPress}
-          disabled={loading}
+          placeholder="Type your message..."
+          className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-green-300"
+          onKeyDown={(e) => e.key === "Enter" && handleSend()}
         />
         <button
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:opacity-50"
           onClick={handleSend}
           disabled={loading}
+          className="ml-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:bg-gray-400"
         >
-          {loading ? "Classifying..." : "Send"}
+          Send
         </button>
       </div>
     </div>

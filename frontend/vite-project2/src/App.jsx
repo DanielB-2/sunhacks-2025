@@ -4,8 +4,6 @@ import { MainPage } from "./Components/MainPage";
 import { ScanPage } from "./Components/ScanPage";  
 import { About } from "./about";
 
-
-
 function App() {
   return <div>
     <Router>
@@ -13,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/scan" element={<ScanPage />} />
-        <Route path = "/about" element  = {<About />} />
+        <Route path = "/about" element = {<About />} />
       </Routes>
     </Router>
   </div>
