@@ -4,11 +4,14 @@ import {useEffect } from 'react';
 
 export function ScanPage() {
 
+  let redirecting = false;
   //check if the user is signed in, if not redirect to login
   useEffect(() => {
         let username = localStorage.getItem("username");
         console.log("username: " + username);
-          if (username == "" || username == null) {
+          if ((username == "" || username == null) && redirecting == false) {
+            redirecting = true;
+
             alert("Please sign in to use the scanning page")
             window.location.href="/login";
           }

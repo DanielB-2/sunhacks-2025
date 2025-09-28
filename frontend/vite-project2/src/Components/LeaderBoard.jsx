@@ -1,4 +1,18 @@
+import {useEffect } from 'react';
+
 export function LeaderBoard() {
+
+  //check if the user is signed in, if not redirect to login
+  useEffect(() => {
+        let username = localStorage.getItem("username");
+        console.log("username: " + username);
+          if (username == "" || username == null) {
+            alert("Please sign in to see the leaderboard page")
+            window.location.href="/login";
+          }
+          
+       });
+
   const players = [
     { name: "Anirudh", points: 120 },
     { name: "Daniel", points: 110 },
