@@ -12,8 +12,19 @@ export function TopBar() {
       
       <div className="flex space-x-8">
         <div className="cursor-pointer hover:underline">LeaderBoard</div>
-        <div className="cursor-pointer hover:underline">SignUp</div>
+        <Link
+         to ="/signup"
+         className="cursor-pointer hover:underline"
+         >
+          Sign Up
+          </Link>
 
+        <Link
+         to ="/signin"
+         className="cursor-pointer hover:underline"
+         >
+          Log In
+          </Link>
         
         <Link
           to="/about"

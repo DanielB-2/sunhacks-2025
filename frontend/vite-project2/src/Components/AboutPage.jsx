@@ -12,7 +12,7 @@ export function AboutPage() {
         const data = await res.json(); 
         setContent(data.text || "About info not available.");
       } catch (err) {
-        setContent("⚠️ Error fetching About info.");
+        setContent("Error fetching About info.");
       } finally {
         setLoading(false);
       }
