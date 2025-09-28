@@ -92,13 +92,15 @@ export default {
 			);
 
 			const data = await geminiResponse.json();
+
+			console.log(data);
+			
 			const result =
-			data?.candidates?.[0]?.content?.[0]?.text?.trim() ||
-			data?.candidates?.[0]?.content?.[1]?.text?.trim() ||
-			"Could not classify item.";
+			data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
 
 			return new Response(
 			JSON.stringify({
+				data,
 				result,
 				fileName: file.name,
 				mimeType: file.type,
