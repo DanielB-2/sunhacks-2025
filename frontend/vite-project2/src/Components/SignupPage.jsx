@@ -28,7 +28,7 @@ export function SignupPage() {
                     localStorage.setItem("password", document.getElementById("password").value);
 
                     //redirect to home screen
-                    window.location.href("/");
+                    window.location.href = "/";
 
                 }}>Submit</button>
             </div>

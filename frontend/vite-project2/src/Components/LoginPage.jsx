@@ -28,7 +28,7 @@ export function LoginPage() {
 
 
                     //reload to home screen
-                    window.location.href("/");
+                    window.location.href = "/";
 
                 }}>Submit</button>
             </div>
