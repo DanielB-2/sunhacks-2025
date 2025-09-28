@@ -1,7 +1,20 @@
 import { useState } from "react";
 import { ChatBox } from "./ChatBox";
+import {useEffect } from 'react';
 
 export function ScanPage() {
+
+  //check if the user is signed in, if not redirect to login
+  useEffect(() => {
+        let username = localStorage.getItem("username");
+        console.log("username: " + username);
+          if (username == "" || username == null) {
+            alert("Please sign in to use the scanning page")
+            window.location.href="/login";
+          }
+          
+       });
+
   const [selectedFile, setSelectedFile] = useState(null);
   const [preview, setPreview] = useState(null);
   const [result, setResult] = useState("");
@@ -14,6 +27,9 @@ export function ScanPage() {
     setSelectedFile(file);
     setPreview(URL.createObjectURL(file));
     setResult(""); // reset old result
+
+
+    document.getElementById("file-upload").classList.add("hidden");
   };
 
   const handleScan = async () => {
@@ -46,15 +62,16 @@ export function ScanPage() {
     <div className="flex flex-col justify-center items-center min-h-screen bg-[#f9f4eb] px-4">
       {/* Upload Card */}
       <div className="bg-white rounded-xl shadow-lg p-10 w-full max-w-lg text-center border border-gray-200 mb-8">
-        <h1 className="text-2xl font-bold text-gray-800 mb-4">
+        
+
+        {/* File Upload */}
+        <label id="file-upload" className="flex flex-col items-center px-6 py-10 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-green-500 transition">
+          <h1 className="text-2xl font-bold text-gray-800 mb-4">
           Upload a file to scan
         </h1>
         <p className="text-gray-600 mb-6">
           Supported formats: JPG, PNG. Max size 5MB.
         </p>
-
-        {/* File Upload */}
-        <label className="flex flex-col items-center px-6 py-10 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-green-500 transition">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="w-12 h-12 text-green-600 mb-3"
@@ -80,12 +97,14 @@ export function ScanPage() {
 
         {/* Preview Image */}
         {preview && (
-          <div className="mt-4">
+          <div className="mt-4 flex items-left items-start">
+            <button className="relative  bg-[#ffffff] border border-solid rounded-lg w-[2em] h-[2em]" id="close-preview-image">X</button>
             <img
               src={preview}
               alt="Preview"
               className="w-48 mx-auto rounded-lg"
             />
+            
           </div>
         )}
 
