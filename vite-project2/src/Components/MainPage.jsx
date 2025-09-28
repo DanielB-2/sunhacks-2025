@@ -1,16 +1,42 @@
+// src/components/MainPage.jsx
+import { Link } from "react-router-dom";
+
 export function MainPage() {
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-[#f9f4eb]">
-      <img 
-        className="pt-30 max-w-4xl w-full h-auto object-contain rounded-lg shadow-md"
-        src="LP.jpg" 
+    <div className="flex flex-col justify-center items-center min-h-screen bg-[#f9f4eb] px-4">
+      {/* Hero Image */}
+      <img
+        className="max-w-3xl w-full h-auto object-contain rounded-2xl shadow-lg"
+        src="LP.jpg"
         alt="RecycleX Preview"
       />
 
-      <div className="mt-6">
-        <button className="bg-blue-600 text-white font-medium px-6 py-3 rounded-md shadow-md hover:bg-blue-700 transition">
+      {/* Headline + Subtitle */}
+      <div className="mt-8 text-center">
+        <h1 className="text-4xl font-bold text-green-700 mb-3">
+          Recycle Smarter with RecycleX
+        </h1>
+        <p className="text-lg text-gray-600 max-w-xl mx-auto">
+          Join us in making the planet greener. Scan, track, and recycle your
+          items effortlessly.
+        </p>
+      </div>
+
+      {/* Call to Action */}
+      <div className="mt-8 flex space-x-4">
+        <Link
+          to="/signup"
+          className="bg-blue-600 text-white font-medium px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition"
+        >
           Sign up for free
-        </button>
+        </Link>
+
+        <Link
+          to="/scan"
+          className="bg-green-600 text-white font-medium px-6 py-3 rounded-lg shadow-md hover:bg-green-700 transition"
+        >
+          Start Scanning
+        </Link>
       </div>
     </div>
   );

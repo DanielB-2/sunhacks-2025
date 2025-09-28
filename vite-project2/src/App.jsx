@@ -1,25 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { TopBar } from './Components/TopBar'
-import { MainPage } from './Components/MainPage'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { TopBar } from "./Components/TopBar";
+import { MainPage } from "./Components/MainPage";
+import { ScanPage } from "./Components/ScanPage";  
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <div>
-      <div>
-        <TopBar />
-      </div>
-      <div>
-        <MainPage></MainPage>
-      </div>
-      
-      
-    </div>
-  )
+  return <div>
+    <Router>
+      <TopBar />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/scan" element={<ScanPage />} />
+      </Routes>
+    </Router>
+  </div>
+  
 }
-      
-export default App
+
+export default App;
