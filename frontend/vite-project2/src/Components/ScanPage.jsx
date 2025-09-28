@@ -29,9 +29,23 @@ export function ScanPage() {
           Scan Now
         </button>
       </div>
-
+      <div className="flex w-[100vw]">
+        
+        
+        <button  id="toggle-chat-bot" onClick={() => {
+          let helpPopupClassList = document.getElementById('help-bot-popup').classList;
+          if (helpPopupClassList.contains("hidden")) {
+            helpPopupClassList.remove('hidden');
+          }
+          else {
+            helpPopupClassList.add('hidden');
+          }
+          
+          }} className="mt-[25vw] ml-[90vw] bg-[#00a73d] text-white font-bold text-lg px-10 py-3 rounded-lg shadow-md hover:bg-[#009635] transition">Need Help?</button>
+      </div>
+      
+      <ChatBox className="hidden"/>
      
-      <ChatBox />
     </div>
   );
 }
