@@ -3,30 +3,17 @@ import { Link } from "react-router-dom";
 export function TopBar() {
   return (
     <div className="bg-[#85ad5c] shadow-xl h-[72px] flex justify-between items-center px-8 text-white">
-      <Link to="/" className="flex items-center space-x-2 cursor-pointer hover:underline font-semibold text-xl">
-          <img className="h-10 w-10" src="Logo.jpg" alt="Logo" />
-          <span>RecycleX</span>
-        </Link>
-     
+      <div className="flex items-center space-x-2 font-semibold text-xl">
+        <img className="h-10 w-10" src="Logo.jpg" alt="Logo" />
+        <span>RecycleX</span>
+      </div>
 
-      
       <div className="flex space-x-8">
         <div className="cursor-pointer hover:underline">LeaderBoard</div>
         <div className="cursor-pointer hover:underline">SignUp</div>
+        <div className="cursor-pointer hover:underline">About</div>
 
-        
-        <Link
-          to="/about"
-          className="cursor-pointer hover:underline"
-        >
-          About
-        </Link>
-
-        
-        <Link
-          to="/scan"
-          className="flex items-center space-x-2 cursor-pointer hover:underline"
-        >
+        <Link to="/scan" className="flex items-center space-x-2 cursor-pointer hover:underline">
           <span>Scan</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +25,7 @@ export function TopBar() {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="lucide lucide-scan-line-icon"
+            className="lucide lucide-scan-line-icon lucide-scan-line"
           >
             <path d="M3 7V5a2 2 0 0 1 2-2h2" />
             <path d="M17 3h2a2 2 0 0 1 2 2v2" />
