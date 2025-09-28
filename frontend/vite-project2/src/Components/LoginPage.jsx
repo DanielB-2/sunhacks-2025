@@ -20,7 +20,17 @@ export function LoginPage() {
                     className="cursor-pointer hover:underline"
                 ><p>Click here to signup</p></Link>
 
-                <button className="border border-solid border-black rounded-md w-fit m-5 p-2">Submit</button>
+                <button className="border border-solid border-black rounded-md w-fit m-5 p-2" onClick={() => {
+                    console.log("logging in")
+                    //store userinfo to local storage
+                    localStorage.setItem("username", document.getElementById("username").value);
+                    localStorage.setItem("password", document.getElementById("password").value);
+
+
+                    //reload to update topbar
+                    window.location.reload();
+
+                }}>Submit</button>
             </div>
         </div>
     );
