@@ -27,8 +27,8 @@ export function SignupPage() {
                     localStorage.setItem("username", document.getElementById("username").value);
                     localStorage.setItem("password", document.getElementById("password").value);
 
-                    //reload to update topbar
-                    window.location.reload();
+                    //redirect to home screen
+                    window.location.href("/");
 
                 }}>Submit</button>
             </div>
