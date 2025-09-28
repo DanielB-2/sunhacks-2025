@@ -6,21 +6,11 @@ export function MainPage() {
     <div className="flex flex-col justify-center items-center min-h-screen bg-[#f9f4eb] px-4">
       {/* Hero Image */}
       <img
-        className="max-w-3xl w-full h-auto object-contain rounded-2xl shadow-lg"
+        className="max-w-3xl w-full h-auto object-contain rounded-2xl"
         src="LP.jpg"
         alt="RecycleX Preview"
       />
 
-      {/* Headline + Subtitle */}
-      <div className="mt-8 text-center">
-        <h1 className="text-4xl font-bold text-green-700 mb-3">
-          Recycle Smarter with RecycleX
-        </h1>
-        <p className="text-lg text-gray-600 max-w-xl mx-auto">
-          Join us in making the planet greener. Scan, track, and recycle your
-          items effortlessly.
-        </p>
-      </div>
 
       {/* Call to Action */}
       <div className="mt-8 flex space-x-4">
