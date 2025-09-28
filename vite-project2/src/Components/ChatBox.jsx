@@ -36,7 +36,7 @@ export function ChatBox() {
   };
 
   return (
-    <div className="w-full max-w-lg bg-white rounded-xl shadow-lg flex flex-col h-[500px] border border-gray-200">
+    <div id="help-bot-popup" className="hidden ml-auto w-full max-w-lg bg-white rounded-xl shadow-lg flex flex-col h-[500px] border border-gray-200">
       {/* Messages */}
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {messages.map((msg, idx) => (
