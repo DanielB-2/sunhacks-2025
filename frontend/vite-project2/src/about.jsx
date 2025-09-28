@@ -13,8 +13,8 @@ export function About() {
         <div className="min-w-100 rounded-xl flex-1 text-left px-[5vw] flex items-center">
           <p className="text-lg">
             RecycleX is a website that encourages users to recycle. By giving
-            users points for recycling correctly they can compete against
-            friends.
+            users points for recycling properly they can compete against
+            others.
           </p>
         </div>
       </div>
