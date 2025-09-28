@@ -37,6 +37,16 @@ export function ChatBox() {
 
   return (
     <div id="help-bot-popup" className="hidden ml-auto w-full max-w-lg bg-white rounded-xl shadow-lg flex flex-col h-[500px] border border-gray-200">
+      <button className="right-[10px] absolute" id="close-help-bot-popup" onClick={() => {
+          let helpPopupClassList = document.getElementById('help-bot-popup').classList;
+
+          //close the help bot popup
+            helpPopupClassList.add('hidden');
+            helpPopupClassList.remove("-translate-y-full");
+
+          }
+          
+          }><p className="text-2xl" >X</p></button>
       {/* Messages */}
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {messages.map((msg, idx) => (

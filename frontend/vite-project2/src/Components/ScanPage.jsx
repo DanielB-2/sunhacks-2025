@@ -32,14 +32,12 @@ export function ScanPage() {
       <div className="flex w-[100vw]">
         <button id="toggle-chat-bot" onClick={() => {
           let helpPopupClassList = document.getElementById('help-bot-popup').classList;
-          if (helpPopupClassList.contains("hidden")) {
-            helpPopupClassList.remove('hidden');
-          }
-          else {
-            helpPopupClassList.add('hidden');
-          }
-          
-          }} className=" mt-[17vw] ml-[90vw] mt-6 bg-green-600 text-white font-medium px-6 py-3 rounded-lg shadow hover: bg-green-700 transition ">Need Help?</button>
+
+          //open the help bot popup
+          helpPopupClassList.remove('hidden');
+          helpPopupClassList.add("-translate-y-full");
+
+          }} className=" mt-[17vw] ml-[90vw] mt-6 translate-y-[-5px] bg-green-600 text-white font-medium px-6 py-3 rounded-lg shadow hover: bg-green-700 transition ">Need Help?</button>
       </div>
       
       <ChatBox className="hidden"/>
